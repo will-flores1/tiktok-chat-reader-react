@@ -46,15 +46,13 @@ export function Chat({ chatMessages }) {
 		wrapper: {
 			display: "flex",
 			flexDirection: "column",
-			width: "50%",
-			justifyContent: "space-between",
-			backgroundColor: "hsl(0deg 0% 10%)",
+			flexGrow: "1",
 		},
 		listStyle: {
 			listStyleType: "none",
 			overflowY: "scroll",
 			overflowX: "hidden",
-			height: "calc(100vh - 240px)",
+			height: "calc(100vh - 260px)",
 			padding: "0",
 			margin: "0",
 			lineHeight: "2",
@@ -62,6 +60,7 @@ export function Chat({ chatMessages }) {
 		listItem: {
 			display: "flex",
 			alignItems: "center",
+			backgroundColor: "hsl(0deg 0% 10%)",
 		},
 		profilePicture: {
 			height: "18px",

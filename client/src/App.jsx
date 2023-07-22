@@ -84,7 +84,7 @@ export default function App() {
 			<p style={styles.smText}>
 				Source:{" "}
 				<a href="https://github.com/will-flores1/TikTok-Chat-Reader-React">
-					https://github.com/zerodytrash/TikTok-Chat-Reader
+					https://github.com/will-flores1/TikTok-Chat-Reader-React
 				</a>
 			</p>
 			<MyForm />

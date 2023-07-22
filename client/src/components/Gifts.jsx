@@ -15,9 +15,7 @@ export function Gifts({ gifts }) {
 		wrapper: {
 			display: "flex",
 			flexDirection: "column",
-			width: "50%",
-			justifyContent: "space-between",
-			backgroundColor: "hsl(0deg 0% 10%)",
+			flex: "8 4 0",
 		},
 		listStyle: {
 			display: "flex",
@@ -26,13 +24,14 @@ export function Gifts({ gifts }) {
 			listStyleType: "none",
 			overflowY: "scroll",
 			overflowX: "hidden",
-			height: "calc(100vh - 240px)",
+			height: "calc(100vh - 260px)",
 			padding: "0",
 			margin: "0",
 		},
 		listItem: {
 			display: "flex",
 			flexDirection: "column",
+			backgroundColor: "hsl(0deg 0% 10%)",
 		},
 		profilePicture: {
 			width: "24px",
