@@ -18,6 +18,10 @@ p {
 	margin: 0;
 }
 
+.bold {
+	font-weight: 800;
+}
+
 a {
 	font-weight: 500;
 	color: #646cff;
