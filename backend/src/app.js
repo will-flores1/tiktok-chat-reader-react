@@ -49,6 +49,8 @@ io.on("connection", (socket) => {
 		TikTokLive.connection.on("chat", (data) => chatFunc(data));
 		TikTokLive.connection.on("gift", (data) => giftFunc(data));
 		TikTokLive.connection.on("gift", (data) => socket.emit("gift", data));
+		TikTokLive.connection.on("roomUser", (data) => socket.emit("roomUser", data));
+		TikTokLive.connection.on("like", (data) => socket.emit("like", data));
 
 		/*
 		 * Define functions to run when events are received
