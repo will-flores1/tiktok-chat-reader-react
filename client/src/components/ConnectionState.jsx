@@ -23,7 +23,7 @@ export function ConnectionState({ isConnected, liveConnected }) {
 					<span style={style.live}></span> TikTok Live Connected
 				</p>
 			) : (
-				<p>Live Disconnected</p>
+				<p>TikTok Live Not Connected</p>
 			)}
 		</div>
 	);
