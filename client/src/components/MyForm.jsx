@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { socket } from "../socket.js";
 
-export function MyForm() {
+export function MyForm({ isConnected }) {
 	const [value, setValue] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 
@@ -27,17 +27,18 @@ export function MyForm() {
 	return (
 		<div style={styles.wrapper}>
 			<p>
-				Enter the <span class="bold">@username</span> of a user who is currently
-				live:
+				Enter the <span className="bold">@username</span> of a user who is
+				currently live:
 			</p>
 			<form style={styles.form} onSubmit={onSubmit}>
 				<label htmlFor="username">Username: </label>
 				<input
 					name="username"
 					placeholder="ex. JohnDoe"
+					disabled={!isConnected || isLoading}
 					onChange={(e) => setValue(e.target.value)}
 				/>
-				<button type="submit" disabled={isLoading}>
+				<button type="submit" disabled={!isConnected || isLoading}>
 					Submit
 				</button>
 			</form>

@@ -80,7 +80,7 @@ export function Gifts({ gifts }) {
 								src={event.profilePictureUrl}
 								alt="gifter profile picture"
 							/>
-							<span class="bold" style={{ color: "#36a2eb" }}>
+							<span className="bold" style={{ color: "#36a2eb" }}>
 								{event.uniqueId}
 							</span>
 							<span>: sent {event.giftName}</span>

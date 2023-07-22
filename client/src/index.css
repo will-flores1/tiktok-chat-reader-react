@@ -22,6 +22,15 @@ p {
 	font-weight: 800;
 }
 
+.success {
+	color: #00ff00;
+}
+
+.warning {
+	color: #ff0000;
+	animation: blinker 5s linear infinite;
+}
+
 a {
 	font-weight: 500;
 	color: #646cff;
@@ -68,6 +77,12 @@ button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
 }
 
+button:disabled {
+	opacity: 0.8;
+	cursor: not-allowed;
+	border: none;
+}
+
 @media (prefers-color-scheme: light) {
 	:root {
 		color: #213547;
@@ -78,5 +93,12 @@ button:focus-visible {
 	}
 	button {
 		background-color: #f9f9f9;
+	}
+}
+
+/* // create blinker animation */
+@keyframes blinker {
+	50% {
+		opacity: 50%;
 	}
 }

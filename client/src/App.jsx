@@ -87,7 +87,7 @@ export default function App() {
 					https://github.com/will-flores1/TikTok-Chat-Reader-React
 				</a>
 			</p>
-			<MyForm />
+			<MyForm isConnected={isConnected} />
 			<ConnectionState
 				isConnected={isConnected}
 				liveConnected={liveConnected}
