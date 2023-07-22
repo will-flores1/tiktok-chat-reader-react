@@ -55,18 +55,21 @@ export function Chat({ chatMessages }) {
 			height: "calc(100vh - 260px)",
 			padding: "0",
 			margin: "0",
-			lineHeight: "2",
+			display: "flex",
+			flexDirection: "column",
+			gap: "6px",
 		},
 		listItem: {
 			display: "flex",
-			alignItems: "center",
+			alignItems: "start",
+			gap: "4px",
 			backgroundColor: "hsl(0deg 0% 10%)",
+			lineHeight: "1",
 		},
 		profilePicture: {
 			height: "18px",
 			width: "18px",
 			borderRadius: "50%",
-			marginRight: "5px",
 		},
 	};
 
@@ -83,7 +86,10 @@ export function Chat({ chatMessages }) {
 							src={event.profilePictureUrl}
 							alt={`${event.nickname} profile picture`}
 						/>
-						<span style={{ color: "#36a2eb" }}>{`${event.uniqueId}: `}</span>
+						<span
+							class="bold"
+							style={{ color: "#36a2eb" }}
+						>{`${event.uniqueId}: `}</span>
 						{event.comment}
 					</li>
 				))}
