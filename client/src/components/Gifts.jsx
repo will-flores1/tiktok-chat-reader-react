@@ -17,6 +17,7 @@ export function Gifts({ gifts }) {
 			flexDirection: "column",
 			width: "50%",
 			justifyContent: "space-between",
+			backgroundColor: "hsl(0deg 0% 10%)",
 		},
 		listStyle: {
 			display: "flex",

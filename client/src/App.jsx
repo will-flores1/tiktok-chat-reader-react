@@ -14,7 +14,6 @@ export default function App() {
 	const [viewerCount, setViewerCount] = useState(0);
 	const [likeCount, setLikeCount] = useState(0);
 	const [liveConnected, setLiveConnected] = useState(false);
-	// const [coinCount, setCoinCount] = useState(0);
 
 	function addChatMessage(data) {
 		setChatMessages((previous) => [...previous, data]);
@@ -44,6 +43,9 @@ export default function App() {
 		});
 	}
 
+	/*
+	 * Listen for events from the server
+	 */
 	useEffect(() => {
 		socket.on("connect", () => setIsConnected(true));
 		socket.on("disconnect", () => setIsConnected(false));
@@ -68,11 +70,23 @@ export default function App() {
 		wrapper: {
 			display: "flex",
 			width: "100%",
+			lineHeight: "1",
+		},
+		smText: {
+			fontSize: "0.8rem",
+			lineHeight: ".5",
 		},
 	};
 
 	return (
 		<div className="App">
+			<h1>TikTok LIVE Chat Reader + React</h1>
+			<p style={styles.smText}>
+				Source:{" "}
+				<a href="https://github.com/will-flores1/TikTok-Chat-Reader-React">
+					https://github.com/zerodytrash/TikTok-Chat-Reader
+				</a>
+			</p>
 			<MyForm />
 			<ConnectionState
 				isConnected={isConnected}
