@@ -7,7 +7,7 @@ export function ConnectionState({ isConnected, liveConnected }) {
 			) : (
 				<p>Live Disconnected</p>
 			)}
-			{/* <p>Socket connection: {isConnected.toString()}</p> */}
+			<p>Socket connection: {isConnected.toString()}</p>
 		</div>
 	);
 }
