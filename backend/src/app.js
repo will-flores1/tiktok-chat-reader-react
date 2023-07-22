@@ -22,7 +22,7 @@ const io = new Server(server, {
 		allowedHeaders: ["my-custom-header"],
 		credentials: true,
 	},
-	autoConnect: false,
+	autoConnect: true,
 });
 
 /**
