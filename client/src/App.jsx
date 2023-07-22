@@ -13,6 +13,7 @@ export default function App() {
 	const [gifts, setGifts] = useState([]);
 	const [viewerCount, setViewerCount] = useState(0);
 	const [likeCount, setLikeCount] = useState(0);
+	const [liveConnected, setLiveConnected] = useState(false);
 	// const [coinCount, setCoinCount] = useState(0);
 
 	function addChatMessage(data) {
@@ -46,6 +47,7 @@ export default function App() {
 	useEffect(() => {
 		socket.on("connect", () => setIsConnected(true));
 		socket.on("disconnect", () => setIsConnected(false));
+		socket.on("tiktokConnected", (data) => setLiveConnected(true));
 		socket.on("chat", (data) => addChatMessage(data));
 		socket.on("gift", (data) => {
 			if (!isPendingStreak(data) && data.diamondCount > 0) {
@@ -71,9 +73,12 @@ export default function App() {
 
 	return (
 		<div className="App">
-			<ConnectionState isConnected={isConnected} />
-			<ConnectionManager />
 			<MyForm />
+			<ConnectionState
+				isConnected={isConnected}
+				liveConnected={liveConnected}
+			/>
+			{/* <ConnectionManager /> */}
 			<StreamStats viewerCount={viewerCount} likeCount={likeCount} />
 			<div style={styles.wrapper}>
 				<Chat chatMessages={chatMessages} />
