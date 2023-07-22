@@ -15,7 +15,7 @@ export function Gifts({ gifts }) {
 		wrapper: {
 			display: "flex",
 			flexDirection: "column",
-			flex: "1",
+			flex: "40%",
 		},
 		listStyle: {
 			display: "flex",
@@ -24,7 +24,7 @@ export function Gifts({ gifts }) {
 			listStyleType: "none",
 			overflowY: "scroll",
 			overflowX: "hidden",
-			height: "calc(100vh - 260px)",
+			height: "calc(100vh - 250px)",
 			padding: "0",
 			margin: "0",
 		},

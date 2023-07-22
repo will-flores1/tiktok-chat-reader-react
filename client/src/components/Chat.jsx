@@ -52,7 +52,7 @@ export function Chat({ chatMessages }) {
 			listStyleType: "none",
 			overflowY: "scroll",
 			overflowX: "hidden",
-			height: "calc(100vh - 260px)",
+			height: "calc(100vh - 250px)",
 			padding: "0",
 			margin: "0",
 			display: "flex",
