@@ -63,6 +63,9 @@ export default function App() {
 			socket.off("connect");
 			socket.off("disconnect");
 			socket.off("chat");
+			socket.off("gift");
+			socket.off("roomUser");
+			socket.off("like");
 		};
 	}, []);
 
