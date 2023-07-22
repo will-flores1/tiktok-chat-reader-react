@@ -46,7 +46,7 @@ export function Chat({ chatMessages }) {
 		wrapper: {
 			display: "flex",
 			flexDirection: "column",
-			flexGrow: "1",
+			width: "50%",
 			justifyContent: "space-between",
 		},
 		listStyle: {
