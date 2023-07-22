@@ -5,23 +5,24 @@ import { ConnectionManager } from "./components/ConnectionManager";
 import { MyForm } from "./components/MyForm";
 import { Chat } from "./components/Chat.jsx";
 import { Gifts } from "./components/Gifts.jsx";
+import { StreamStats } from "./components/StreamStats.jsx";
 
 export default function App() {
 	const [isConnected, setIsConnected] = useState(false);
 	const [chatMessages, setChatMessages] = useState([]);
 	const [gifts, setGifts] = useState([]);
+	const [viewerCount, setViewerCount] = useState(0);
+	const [likeCount, setLikeCount] = useState(0);
+	// const [coinCount, setCoinCount] = useState(0);
 
 	function addChatMessage(data) {
 		setChatMessages((previous) => [...previous, data]);
 	}
-	// Function to check if the gift is part of a streak
-	const isPendingStreak = (data) => {
+	function isPendingStreak(data) {
 		const streakId = data.userId.toString() + "_" + data.giftId;
 		return gifts.some((gift) => gift.streakId === streakId);
-	};
-
-	// Function to update the gifts array with the latest gift data
-	const updateGifts = (data) => {
+	}
+	function updateGifts(data) {
 		const streakId = data.userId.toString() + "_" + data.giftId;
 		setGifts((prevGifts) => {
 			const updatedGifts = prevGifts.map((gift) => {
@@ -40,18 +41,19 @@ export default function App() {
 				return [...updatedGifts, { ...data, streakId: streakId }];
 			}
 		});
-	};
+	}
 
 	useEffect(() => {
 		socket.on("connect", () => setIsConnected(true));
 		socket.on("disconnect", () => setIsConnected(false));
 		socket.on("chat", (data) => addChatMessage(data));
 		socket.on("gift", (data) => {
-			// wait for the streak to end before adding the gift
 			if (!isPendingStreak(data) && data.diamondCount > 0) {
 				updateGifts(data);
 			}
 		});
+		socket.on("roomUser", (data) => setViewerCount(data.viewerCount));
+		socket.on("like", (data) => setLikeCount(data.totalLikeCount));
 
 		return () => {
 			socket.off("connect");
@@ -72,6 +74,7 @@ export default function App() {
 			<ConnectionState isConnected={isConnected} />
 			<ConnectionManager />
 			<MyForm />
+			<StreamStats viewerCount={viewerCount} likeCount={likeCount} />
 			<div style={styles.wrapper}>
 				<Chat chatMessages={chatMessages} />
 				<Gifts gifts={gifts} />
