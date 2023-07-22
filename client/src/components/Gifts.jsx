@@ -15,7 +15,7 @@ export function Gifts({ gifts }) {
 		wrapper: {
 			display: "flex",
 			flexDirection: "column",
-			flex: "8 4 0",
+			flex: "1",
 		},
 		listStyle: {
 			display: "flex",
