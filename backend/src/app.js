@@ -43,13 +43,20 @@ io.on("connection", (socket) => {
 			return;
 		}
 
+		// wait for connection to be established
+		TikTokLive.once("connected", () => {
+			socket.emit("tiktokConnected", { username });
+		});
+
 		/*
 		 * Define events to listen for from TikTok
 		 */
 		TikTokLive.connection.on("chat", (data) => chatFunc(data));
 		TikTokLive.connection.on("gift", (data) => giftFunc(data));
 		TikTokLive.connection.on("gift", (data) => socket.emit("gift", data));
-		TikTokLive.connection.on("roomUser", (data) => socket.emit("roomUser", data));
+		TikTokLive.connection.on("roomUser", (data) =>
+			socket.emit("roomUser", data)
+		);
 		TikTokLive.connection.on("like", (data) => socket.emit("like", data));
 
 		/*
