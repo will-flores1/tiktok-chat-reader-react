@@ -83,7 +83,7 @@ export function Chat({ chatMessages }) {
 							src={event.profilePictureUrl}
 							alt={`${event.nickname} profile picture`}
 						/>
-						<span style={{ color: "#36a2eb" }}>{`${event.nickname}: `}</span>
+						<span style={{ color: "#36a2eb" }}>{`${event.uniqueId}: `}</span>
 						{event.comment}
 					</li>
 				))}
